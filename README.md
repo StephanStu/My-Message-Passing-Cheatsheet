@@ -7,6 +7,8 @@ The RESTful server implemented in *app.py* responds at the endpoint */health* an
 
 ### The Endpoint for Placing Orders and Getting the Current Orders
 The RESTful server implemented in *app.py* responds at the endpoint */orders/computers* and returns the orders currently stored in the backend as json-output. This is a GET-Method in http.
+
+
 The RESTful server implemented in *app.py* responds at the endpoint */orders/computers* accepts a json-body like this
 ```json
 {
@@ -17,7 +19,7 @@ The RESTful server implemented in *app.py* responds at the endpoint */orders/com
     "equipment": ["KEYBOARD", "MOUSE"]
 }
 ```
-to place an order in the backend. Using [Postman](https://www.postman.com/downloads/), this request can be tested as shown below.
+to place an order in the backend. This is a POST-Method in http. Using [Postman](https://www.postman.com/downloads/), this request can be tested as shown below.
 <img src="RESTAPIPOSTRequest.png"/>
 
 ## Deployment
