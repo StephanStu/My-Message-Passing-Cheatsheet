@@ -2,11 +2,14 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-calls=0
+calls = 0
 
 @app.route('/health', methods=['GET'])
 def health():
-    result = {'calls': calls}
+    if calls > 0:
+        result = {'calls': calls, 'status': 'OK'}
+    else:
+        result = {'calls': calls, 'status': 'WAITING'}
     return jsonify(result)
 
 @app.route("/")
