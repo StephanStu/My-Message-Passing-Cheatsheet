@@ -1,5 +1,5 @@
 # My-Message-Passing-Cheatsheet
-This repository contains simple client-server applications that illustrate how one can work with REST-APis and gRPC to make microservices communicate with each other.
+This repository contains simple client-server applications that illustrate how one can work with REST-APIs and gRPC to make microservices communicate with each other.
 
 
 The RESTful server implemented in *app.py* responds at the endpoint */health* and returns the number of calls to the primary endpoint. If the primary endpoint has been called previously, the status is considered ok, otherwise the server is waiting.
@@ -13,6 +13,8 @@ Verify that packages are deployed using
 ```console
 pip list
 ```
+The RESTful server can be tested with a client, implemented in *client.py*. However, it is recommended to use [Postman](https://www.postman.com/downloads/), a graphical user interface to test REST-APIs.
+
 ## Execution
 Change into the directory of the clone and then run
 ```console
