@@ -3,9 +3,17 @@ This repository contains simple client-server applications that illustrate how o
 ## Deployment
 To start of we need to install dependencies. A file that holds the dependencies is provided and suitable for passing this to *pip*.
 ```console
-you~$ pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 Verify that packages are deployed using
 ```console
-you:~$ pip list
+pip list
 ```
+## Execution
+Change into the directory of the clone and then run
+```console
+flask run --host=0.0.0.0 --port=80
+```
+Open a browser and enter the address and port:
+* to catch the normal endpoint 0.0.0.0: This will return "Hello World".
+* to chatch the health check 0.0.0.0/health: This will return the number of calls to the normal endpoints as json-output.
