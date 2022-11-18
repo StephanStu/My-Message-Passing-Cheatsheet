@@ -23,3 +23,12 @@ flask run --host=0.0.0.0 --port=80
 Open a browser and enter the address and port:
 * to catch the normal endpoint 0.0.0.0: This will return "Hello World".
 * to catch the health check 0.0.0.0/health: This will return the number of calls to the normal endpoints as json-output.
+
+In another command window run
+```console
+python client.py
+```
+to consume the REST-API with a server. The expected output in the command line here is
+```console
+{'calls': 0, 'status': 'WAITING'}
+```
