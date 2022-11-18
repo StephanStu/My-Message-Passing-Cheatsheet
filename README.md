@@ -1,8 +1,24 @@
 # My-Message-Passing-Cheatsheet
-This repository contains simple client-server applications that illustrate how one can work with REST-APIs and gRPC to make microservices communicate with each other.
+This repository contains simple client-server applications that illustrate how one can work with REST-APIs and gRPC to make microservices communicate with each other. This repository contains a
+server using REST-APIs. A order-intake system is simulated with two endpoints: One for checking the health of the server, one for placing and getting orders.
 
+### The Endpoint for Health-Checks
+The RESTful server implemented in *app.py* responds at the endpoint */health* and returns the number of calls to the primary endpoints. If the primary endpoints have been called previously, the status is considered ok, otherwise the server is waiting.
 
-The RESTful server implemented in *app.py* responds at the endpoint */health* and returns the number of calls to the primary endpoint. If the primary endpoint has been called previously, the status is considered ok, otherwise the server is waiting.
+### The Endpoint for Placing Orders and Getting the Current Orders
+The RESTful server implemented in *app.py* responds at the endpoint */orders/computers* and returns the orders currently stored in the backend as json-output. This is a GET-Method in http.
+The RESTful server implemented in *app.py* responds at the endpoint */orders/computers* accepts a json-body like this
+```json
+{
+    "id": "3",
+    "status": "QUEUED",
+    "created_at": "2020-10-16T10:31:10.969696",
+    "created_by": "USER14",
+    "equipment": ["KEYBOARD", "MOUSE"]
+}
+```
+to place an order in the backend. Using [Postman](https://www.postman.com/downloads/), this request can be tested as shown below.
+<img src="RESTAPIPOSTRequest.png"/>
 
 ## Deployment
 To start of we need to install dependencies. A file that holds the dependencies is provided and suitable for passing this to *pip*.
