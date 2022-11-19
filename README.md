@@ -2,10 +2,13 @@
 This repository contains simple client-server applications that illustrate how one can work with REST-APIs and gRPC to make microservices communicate with each other. This repository contains an application (file *app.py*) using REST-APIs to communicate with consumers of the service: An order-intake system is simulated with two endpoints: One for checking the health of the server, one for placing and getting orders.
 In the simulated backend a server is waiting to process requests (file *server.py*); in a real environment this service could be the one scheduling jobs in a warehouse-system. This microservice is called via remote procedure call (gRPC) inside the application.
 
+<img src="architecture.png"/>
 
 This reasoning behind this architecture is as follows: Most external consumers of a business enjoy to work with REST-APIs - simply because these are the industry's standard. Well-documented they are easy to consume by other applications written in many languages. However, REST-APIs suffer from not being strong with typ-definition and manifesting the structure of the data exchanged. They use HTPP and thus have an overhead of payload compared to binary data transfer enabled by gRPC.
 
 gRPC is very suitable to be used "inside an organization" or "inside an application". A team can share and own the *.proto*-files that define the inetrior interfaces, generate code for many different languages from these and work with these interfaces in their microservices. The *.proto*-files serve as contracts between different feature teams and make collaboration more transparent as the size and complexity of a multi-container application grows. However, gRPC is not (yet) an industry standard and many consumers will refuse to integrate them if being forced to.
+
+This repository is used a reference application (written in Python) that illustrates this reasoning. Please find instructions below on how to deploy and run the client-server-application and how to experience it with [Postman](https://www.postman.com/downloads/).
 
 ### The RESTful Endpoint for Health-Checks
 The RESTful server implemented in *app.py* responds at the endpoint */health* and returns the number of calls to the primary endpoints. If the primary endpoints have been called previously, the status is considered ok, otherwise the server is waiting.
